@@ -20,4 +20,3 @@ func (r *Request) GetConnection() iface.IConnection {
 func (r *Request) GetData() []byte {
 	return r.data
 }
-

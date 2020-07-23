@@ -22,8 +22,6 @@ type Server struct {
 	Router iface.IRouter
 }
 
-
-
 //初始化server模块
 func NewServer(name string) iface.IServer {
 	return &Server{
@@ -31,7 +29,7 @@ func NewServer(name string) iface.IServer {
 		IPVersion: "tcp4",
 		IP:        "0.0.0.0",
 		Port:      8888,
-		Router: nil,
+		Router:    nil,
 	}
 }
 

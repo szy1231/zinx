@@ -31,31 +31,31 @@ type Connection struct {
 }
 
 //初始化链接模块的方法
-func NewConnection(conn *net.TCPConn,ConnId uint32, router iface.IRouter) *Connection {
+func NewConnection(conn *net.TCPConn, ConnId uint32, router iface.IRouter) *Connection {
 	c := &Connection{
-		Conn:      conn,
-		ConnId:    ConnId,
-		isClosed:  false,
+		Conn:     conn,
+		ConnId:   ConnId,
+		isClosed: false,
 		//handleAPI: callbackApi,
-		ExitChan:  make(chan bool,1),
-		Router: router,
+		ExitChan: make(chan bool, 1),
+		Router:   router,
 	}
 	return c
 }
 
 var _ iface.IConnection = new(Connection)
 
-func (c *Connection) StartReader()  {
+func (c *Connection) StartReader() {
 	fmt.Println("reader go is running ")
 	defer c.Stop()
-	defer fmt.Printf("connID=%d,Reader is exit,remote addr is %s\n",c.ConnId,c.GetRemoteAddr().String())
+	defer fmt.Printf("connID=%d,Reader is exit,remote addr is %s\n", c.ConnId, c.GetRemoteAddr().String())
 
 	for {
 		//读取客户端的数据，最大512
-		buf := make([]byte,512)
+		buf := make([]byte, 512)
 		_, err := c.Conn.Read(buf)
 		if err != nil {
-			fmt.Println("read buf err:",err)
+			fmt.Println("read buf err:", err)
 			continue
 		}
 
@@ -81,14 +81,14 @@ func (c *Connection) StartReader()  {
 	}
 }
 func (c *Connection) Start() {
-	fmt.Println("conn start()... connId = ",c.ConnId)
+	fmt.Println("conn start()... connId = ", c.ConnId)
 
 	//启动从当前链接的读数据业务
 	go c.StartReader()
 }
 
 func (c *Connection) Stop() {
-	fmt.Println("Conn Stop()... ConnID = ",c.ConnId)
+	fmt.Println("Conn Stop()... ConnID = ", c.ConnId)
 
 	//如果当前链接已经关闭
 	if c.isClosed == true {
