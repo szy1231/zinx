@@ -20,15 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0b8dd5e-7690-4041-9295-b1b50ef2a960" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/iface/irequest.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myDemo/zinx2/client.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myDemo/zinx2/server.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/net/request.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iface/irouter.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/net/router.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iface/iconnection.go" beforeDir="false" afterPath="$PROJECT_DIR$/iface/iconnection.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myDemo/ZinxV0.1/Client.go" beforeDir="false" afterPath="$PROJECT_DIR$/myDemo/zinx1/client.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myDemo/ZinxV0.1/Server.go" beforeDir="false" afterPath="$PROJECT_DIR$/myDemo/zinx1/server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/net/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/net/server.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
