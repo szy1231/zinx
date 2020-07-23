@@ -20,9 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0b8dd5e-7690-4041-9295-b1b50ef2a960" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/iface/irouter.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/net/router.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iface/iserver.go" beforeDir="false" afterPath="$PROJECT_DIR$/iface/iserver.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/net/connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/net/connection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/net/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/net/server.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -1,7 +1,6 @@
 package net
 
 import (
-	"errors"
 	"fmt"
 	"net"
 	"zinx/iface"
@@ -19,7 +18,11 @@ type Server struct {
 	IP string
 	//服务器监听的端口
 	Port int
+	//给当前server添加一个router
+	Router iface.IRouter
 }
+
+
 
 //初始化server模块
 func NewServer(name string) iface.IServer {
@@ -28,10 +31,11 @@ func NewServer(name string) iface.IServer {
 		IPVersion: "tcp4",
 		IP:        "0.0.0.0",
 		Port:      8888,
+		Router: nil,
 	}
 }
 
-func CallBackToClient(conn *net.TCPConn,data []byte,cnt int) error  {
+/*func CallBackToClient(conn *net.TCPConn,data []byte,cnt int) error  {
 	//回显业务
 	fmt.Println("conn Handle CallBackToClient")
 	if _,err := conn.Write(data[:cnt]);err != nil {
@@ -40,7 +44,7 @@ func CallBackToClient(conn *net.TCPConn,data []byte,cnt int) error  {
 	}
 
 	return nil
-}
+}*/
 
 func (s *Server) Start() {
 	fmt.Printf("[Start] Server Listener at IP:%s,Port %d, is starting\n", s.IP, s.Port)
@@ -74,7 +78,7 @@ func (s *Server) Start() {
 			}
 
 			//将处理新链接的业务绑定
-			dealConn := NewConnection(conn, cid, CallBackToClient)
+			dealConn := NewConnection(conn, cid, s.Router)
 			cid++
 
 			//启动
@@ -96,4 +100,10 @@ func (s *Server) Serve() {
 
 	//阻塞状态
 	select {}
+}
+
+//添加一个路由功能
+func (s *Server) AddRouter(router iface.IRouter) {
+	s.Router = router
+	fmt.Println("add router success")
 }
