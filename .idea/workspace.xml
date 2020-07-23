@@ -20,8 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0b8dd5e-7690-4041-9295-b1b50ef2a960" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/iface/irequest.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myDemo/zinx2/client.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myDemo/zinx2/server.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/net/request.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/net/connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/net/connection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iface/iconnection.go" beforeDir="false" afterPath="$PROJECT_DIR$/iface/iconnection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myDemo/ZinxV0.1/Client.go" beforeDir="false" afterPath="$PROJECT_DIR$/myDemo/zinx1/client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myDemo/ZinxV0.1/Server.go" beforeDir="false" afterPath="$PROJECT_DIR$/myDemo/zinx1/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/net/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/net/server.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +58,7 @@
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/myDemo/zinx2" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -61,6 +68,11 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="go.vgo" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/myDemo/zinx2" />
+    </key>
   </component>
   <component name="RunManager" selected="Go Build.go build zinx/myDemo/ZinxV0.1">
     <configuration name="go build Server.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">

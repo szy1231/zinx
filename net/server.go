@@ -1,6 +1,7 @@
 package net
 
 import (
+	"errors"
 	"fmt"
 	"net"
 	"zinx/iface"
@@ -30,6 +31,17 @@ func NewServer(name string) iface.IServer {
 	}
 }
 
+func CallBackToClient(conn *net.TCPConn,data []byte,cnt int) error  {
+	//回显业务
+	fmt.Println("conn Handle CallBackToClient")
+	if _,err := conn.Write(data[:cnt]);err != nil {
+		fmt.Println("write error:",err)
+		return errors.New("CallBackToClient error")
+	}
+
+	return nil
+}
+
 func (s *Server) Start() {
 	fmt.Printf("[Start] Server Listener at IP:%s,Port %d, is starting\n", s.IP, s.Port)
 	go func() {
@@ -49,6 +61,8 @@ func (s *Server) Start() {
 		}
 
 		fmt.Printf("start server %s succ\n", s.Name)
+		var cid uint32
+		cid = 0
 
 		//阻塞的等待客户端链接，处理客户端业务
 		for {
@@ -59,25 +73,12 @@ func (s *Server) Start() {
 				continue
 			}
 
-			//已经客户端建立连接，开始做业务
-			go func() {
-				for {
-					//读数据
-					buf := make([]byte, 512)
-					cnt, err := conn.Read(buf)
-					if err != nil {
-						fmt.Println("recv buf error:", err)
-						continue
-					}
+			//将处理新链接的业务绑定
+			dealConn := NewConnection(conn, cid, CallBackToClient)
+			cid++
 
-					//回显功能
-					_, err = conn.Write(buf[:cnt])
-					if err != nil {
-						fmt.Println("write buf error:", err)
-						continue
-					}
-				}
-			}()
+			//启动
+			go dealConn.Start()
 		}
 	}()
 }
