@@ -1,4 +1,4 @@
-package net
+package znet
 
 import "zinx/iface"
 

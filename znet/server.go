@@ -1,9 +1,10 @@
-package net
+package znet
 
 import (
 	"fmt"
 	"net"
 	"zinx/iface"
+	"zinx/util"
 )
 
 var _ iface.IServer = new(Server)
@@ -25,15 +26,15 @@ type Server struct {
 //初始化server模块
 func NewServer(name string) iface.IServer {
 	return &Server{
-		Name:      name,
+		Name:      util.GlobalObject.Name,
 		IPVersion: "tcp4",
-		IP:        "0.0.0.0",
-		Port:      8888,
+		IP:        util.GlobalObject.Host,
+		Port:      util.GlobalObject.Port,
 		Router:    nil,
 	}
 }
 
-/*func CallBackToClient(conn *net.TCPConn,data []byte,cnt int) error  {
+/*func CallBackToClient(conn *znet.TCPConn,data []byte,cnt int) error  {
 	//回显业务
 	fmt.Println("conn Handle CallBackToClient")
 	if _,err := conn.Write(data[:cnt]);err != nil {

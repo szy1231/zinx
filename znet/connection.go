@@ -1,9 +1,10 @@
-package net
+package znet
 
 import (
 	"fmt"
 	"net"
 	"zinx/iface"
+	"zinx/util"
 )
 
 /*
@@ -51,8 +52,8 @@ func (c *Connection) StartReader() {
 	defer fmt.Printf("connID=%d,Reader is exit,remote addr is %s\n", c.ConnId, c.GetRemoteAddr().String())
 
 	for {
-		//读取客户端的数据，最大512
-		buf := make([]byte, 512)
+		//读取客户端的数据
+		buf := make([]byte, util.GlobalObject.MaxPackageSize)
 		_, err := c.Conn.Read(buf)
 		if err != nil {
 			fmt.Println("read buf err:", err)

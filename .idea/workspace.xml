@@ -20,10 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0b8dd5e-7690-4041-9295-b1b50ef2a960" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/myDemo/zinx3/client.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myDemo/zinx3/server.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myDemo/zinx4/client.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myDemo/zinx4/conf/zinx.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myDemo/zinx4/server.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/util/globalobj.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iface/iserver.go" beforeDir="false" afterPath="$PROJECT_DIR$/iface/iserver.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/net/connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/net/connection.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/net/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/net/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myDemo/zinx1/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/myDemo/zinx1/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myDemo/zinx2/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/myDemo/zinx2/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/net/connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/znet/connection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/net/request.go" beforeDir="false" afterPath="$PROJECT_DIR$/znet/request.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/net/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/znet/router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/net/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/znet/server.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +62,7 @@
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/myDemo/zinx2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/myDemo/zinx4" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -66,10 +75,12 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/myDemo/zinx4" />
+      <recent name="$PROJECT_DIR$/myDemo/zinx3" />
       <recent name="$PROJECT_DIR$/myDemo/zinx2" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build zinx/myDemo/ZinxV0.1">
+  <component name="RunManager" selected="Go Build.go build zinx/myDemo/zinx4/conf">
     <configuration name="go build Server.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="zinx" />
       <working_directory value="$PROJECT_DIR$" />
@@ -87,8 +98,17 @@
       <directory value="$PROJECT_DIR$/" />
       <method v="2" />
     </configuration>
+    <configuration name="go build zinx/myDemo/zinx4/conf" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="zinx" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="zinx/myDemo/zinx4/conf" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build zinx/myDemo/zinx4/conf" />
         <item itemvalue="Go Build.go build zinx/myDemo/ZinxV0.1" />
         <item itemvalue="Go Build.go build Server.go" />
       </list>
@@ -107,6 +127,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -120,22 +141,26 @@
       <screen x="0" y="23" width="1440" height="816" />
     </state>
     <state x="406" y="82" key="#go_build_zinx/myDemo/ZinxV0.1/0.23.1440.816/-56.-1057.1920.1057@0.23.1440.816" timestamp="1595492574473" />
-    <state width="1398" height="208" key="GridCell.Tab.0.bottom" timestamp="1595492578859">
-      <screen x="0" y="23" width="1440" height="816" />
+    <state width="1398" height="208" key="GridCell.Tab.0.bottom" timestamp="1595502310096">
+      <screen x="0" y="23" width="1440" height="821" />
     </state>
     <state width="1398" height="208" key="GridCell.Tab.0.bottom/0.23.1440.816/-56.-1057.1920.1057@0.23.1440.816" timestamp="1595492578859" />
-    <state width="1398" height="208" key="GridCell.Tab.0.center" timestamp="1595492578858">
-      <screen x="0" y="23" width="1440" height="816" />
+    <state width="1398" height="208" key="GridCell.Tab.0.bottom/0.23.1440.821/-56.-1057.1920.1057@0.23.1440.821" timestamp="1595502310096" />
+    <state width="1398" height="208" key="GridCell.Tab.0.center" timestamp="1595502310095">
+      <screen x="0" y="23" width="1440" height="821" />
     </state>
     <state width="1398" height="208" key="GridCell.Tab.0.center/0.23.1440.816/-56.-1057.1920.1057@0.23.1440.816" timestamp="1595492578858" />
-    <state width="1398" height="208" key="GridCell.Tab.0.left" timestamp="1595492578857">
-      <screen x="0" y="23" width="1440" height="816" />
+    <state width="1398" height="208" key="GridCell.Tab.0.center/0.23.1440.821/-56.-1057.1920.1057@0.23.1440.821" timestamp="1595502310095" />
+    <state width="1398" height="208" key="GridCell.Tab.0.left" timestamp="1595502310094">
+      <screen x="0" y="23" width="1440" height="821" />
     </state>
     <state width="1398" height="208" key="GridCell.Tab.0.left/0.23.1440.816/-56.-1057.1920.1057@0.23.1440.816" timestamp="1595492578856" />
-    <state width="1398" height="208" key="GridCell.Tab.0.right" timestamp="1595492578858">
-      <screen x="0" y="23" width="1440" height="816" />
+    <state width="1398" height="208" key="GridCell.Tab.0.left/0.23.1440.821/-56.-1057.1920.1057@0.23.1440.821" timestamp="1595502310094" />
+    <state width="1398" height="208" key="GridCell.Tab.0.right" timestamp="1595502310096">
+      <screen x="0" y="23" width="1440" height="821" />
     </state>
     <state width="1398" height="208" key="GridCell.Tab.0.right/0.23.1440.816/-56.-1057.1920.1057@0.23.1440.816" timestamp="1595492578858" />
+    <state width="1398" height="208" key="GridCell.Tab.0.right/0.23.1440.821/-56.-1057.1920.1057@0.23.1440.821" timestamp="1595502310096" />
     <state x="221" y="74" key="SettingsEditor" timestamp="1595492439227">
       <screen x="0" y="23" width="1440" height="816" />
     </state>

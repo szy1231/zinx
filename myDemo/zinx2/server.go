@@ -1,6 +1,6 @@
 package main
 
-import "zinx/net"
+import "zinx/znet"
 
 /*
 	基于zinx框架来开发的，服务器端应用程序
@@ -8,7 +8,7 @@ import "zinx/net"
 
 func main() {
 	//1.创建一个server句柄
-	s := net.NewServer("zinx2")
+	s := znet.NewServer("zinx2")
 	//启动server
 	s.Serve()
 }
