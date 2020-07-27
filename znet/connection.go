@@ -1,15 +1,17 @@
 package znet
 
 import (
+	"errors"
 	"fmt"
+	"io"
 	"net"
 	"zinx/iface"
-	"zinx/util"
 )
 
 /*
 	链接模块
 */
+var _ iface.IConnection = new(Connection)
 
 type Connection struct {
 	//当前链接的socket TCP套接字
@@ -44,8 +46,6 @@ func NewConnection(conn *net.TCPConn, ConnId uint32, router iface.IRouter) *Conn
 	return c
 }
 
-var _ iface.IConnection = new(Connection)
-
 func (c *Connection) StartReader() {
 	fmt.Println("reader go is running ")
 	defer c.Stop()
@@ -53,12 +53,12 @@ func (c *Connection) StartReader() {
 
 	for {
 		//读取客户端的数据
-		buf := make([]byte, util.GlobalObject.MaxPackageSize)
+		/*buf := make([]byte, util.GlobalObject.MaxPackageSize)
 		_, err := c.Conn.Read(buf)
 		if err != nil {
 			fmt.Println("read buf err:", err)
 			continue
-		}
+		}*/
 
 		//调用当前链接所绑定的HandleAPI
 		/*if err := c.handleAPI(c.Conn,buf,cnt);err != nil {
@@ -66,10 +66,35 @@ func (c *Connection) StartReader() {
 			break
 		}*/
 
+		//创建一个拆包解包对象
+		dp := NewDataPack()
+		
+		headData := make([]byte,dp.GetHeadLen())
+		if _, err := io.ReadFull(c.GetTCPConnection(), headData);err!= nil{
+			fmt.Println("read msg head error:",err)
+			break
+		}
+
+		msg, err := dp.Unpack(headData)
+		if err != nil {
+			fmt.Println("unpack error:",err)
+			break
+		}
+
+		var data []byte
+		if msg.GetMsgLen() >0 {
+			data := make([]byte,msg.GetMsgLen())
+			if _, err := io.ReadFull(c.GetTCPConnection(), data);err!= nil{
+				fmt.Println("read msg data error:",err)
+				break
+			}
+		}
+
+		msg.SetData(data)
 		//得到conn数据的request请求数据
 		req := Request{
 			conn: c,
-			data: buf,
+			msg: msg,
 		}
 
 		//执行注册的路由方法
@@ -81,6 +106,7 @@ func (c *Connection) StartReader() {
 
 	}
 }
+
 func (c *Connection) Start() {
 	fmt.Println("conn start()... connId = ", c.ConnId)
 
@@ -116,6 +142,24 @@ func (c *Connection) GetRemoteAddr() net.Addr {
 	return c.Conn.RemoteAddr()
 }
 
-func (c *Connection) Send(data []byte) error {
-	panic("implement me")
+//sendMsg,先封包，再发送
+func (c *Connection) SendMsg(msgId uint32, data []byte) error {
+	if c.isClosed {
+		return errors.New(" The connection is closed")
+	}
+
+	dp := NewDataPack()
+	binaryMsg, err := dp.Pack(NewMsg(msgId, data))
+	if err != nil {
+		fmt.Println("pack error:",err)
+		return errors.New("pack error")
+	}
+
+	//将数据发送给客户端
+	if _, err = c.Conn.Write(binaryMsg);err != nil{
+		fmt.Println("conn write error",err)
+		return errors.New("conn write error")
+	}
+
+	return nil
 }

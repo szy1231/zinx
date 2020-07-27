@@ -9,7 +9,8 @@ type Request struct {
 	conn iface.IConnection
 
 	//客服端请求的数据
-	data []byte
+	//data []byte
+	msg iface.IMessage
 }
 
 //得到当前链接
@@ -18,5 +19,9 @@ func (r *Request) GetConnection() iface.IConnection {
 }
 
 func (r *Request) GetData() []byte {
-	return r.data
+	return r.msg.GetData()
+}
+
+func (r *Request) GetMsgID() uint32 {
+	return r.msg.GetMsgId()
 }
